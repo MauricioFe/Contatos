@@ -7,7 +7,7 @@
     tools:context=".Fragments.ContatoFragment">
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/imgFoto"
         android:layout_width="130dp"
         android:layout_height="130dp"
         android:layout_margin="16dp"
@@ -23,11 +23,11 @@
         android:layout_marginEnd="16dp"
         android:layout_height="wrap_content"
         android:hint="@string/nome"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView"
+        app:layout_constraintBottom_toBottomOf="@+id/imgFoto"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.05"
-        app:layout_constraintStart_toEndOf="@+id/imageView"
-        app:layout_constraintTop_toTopOf="@+id/imageView"
+        app:layout_constraintStart_toEndOf="@+id/imgFoto"
+        app:layout_constraintTop_toTopOf="@+id/imgFoto"
         app:layout_constraintVertical_bias="0.0" />
 
     <EditText
@@ -35,7 +35,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:hint="@string/endereco"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView"
+        app:layout_constraintBottom_toBottomOf="@+id/imgFoto"
         app:layout_constraintEnd_toEndOf="@id/edtNome"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/edtNome"
@@ -47,7 +47,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:hint="@string/telefone"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView"
+        app:layout_constraintBottom_toBottomOf="@+id/imgFoto"
         app:layout_constraintEnd_toEndOf="@id/edtEndereco"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/edtEndereco"

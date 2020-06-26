@@ -5,4 +5,7 @@
     <string name="nome">Nome</string>
     <string name="endereco">Endereço</string>
     <string name="telefone">Telefone</string>
+    <string name="adici_contato">Adicionar Contato</string>
+    <string name="OK">ok</string>
+    <string name="cancelar">cancelar</string>
 </resources>

@@ -1,4 +1,4 @@
-package com.example.contatos;
+package com.example.contatos.Fragments;
 
 import android.content.Intent;
 import android.database.Cursor;

@@ -5,13 +5,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 
 import android.Manifest;
-import android.app.Activity;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.os.PersistableBundle;
 import android.widget.Toast;
 
-import com.example.contatos.Util.ContatoUtil;
+import com.example.contatos.Fragments.ListaContatosFragment;
 
 public class ContatosActivity extends AppCompatActivity {
 
