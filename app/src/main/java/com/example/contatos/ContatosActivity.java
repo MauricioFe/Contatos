@@ -11,6 +11,8 @@ import android.os.Bundle;
 import android.os.PersistableBundle;
 import android.widget.Toast;
 
+import com.example.contatos.Util.ContatoUtil;
+
 public class ContatosActivity extends AppCompatActivity {
 
     private static final String EXTRA_PERMISSAO = "pediu";
@@ -25,6 +27,8 @@ public class ContatosActivity extends AppCompatActivity {
         if (savedInstanceState != null){
             mPediuPermissao= savedInstanceState.getBoolean(EXTRA_PERMISSAO);
         }
+
+
     }
 
     @Override
