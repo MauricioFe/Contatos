@@ -8,8 +8,11 @@ import android.Manifest;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.os.PersistableBundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.widget.Toast;
 
+import com.example.contatos.Fragments.ContatoFragment;
 import com.example.contatos.Fragments.ListaContatosFragment;
 
 public class ContatosActivity extends AppCompatActivity {
@@ -26,8 +29,6 @@ public class ContatosActivity extends AppCompatActivity {
         if (savedInstanceState != null){
             mPediuPermissao= savedInstanceState.getBoolean(EXTRA_PERMISSAO);
         }
-
-
     }
 
     @Override
@@ -67,5 +68,20 @@ public class ContatosActivity extends AppCompatActivity {
             getSupportFragmentManager().beginTransaction().replace(R.id.container, new ListaContatosFragment(), "contatos")
                     .commit();
         }
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        if (item.getItemId() == R.id.action_adicionar){
+            ContatoFragment contato = new ContatoFragment();
+            contato.show(getSupportFragmentManager(), "adic_contato");
+        }
+        return super.onOptionsItemSelected(item);
     }
 }

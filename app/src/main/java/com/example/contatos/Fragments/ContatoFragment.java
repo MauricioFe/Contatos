@@ -7,34 +7,27 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.EditText;
+import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.DialogFragment;
-import androidx.fragment.app.Fragment;
-
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.EditText;
-import android.widget.ImageView;
 
 import com.example.contatos.R;
 import com.example.contatos.Util.ContatoUtil;
 
 import java.io.FileNotFoundException;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link ContatoFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
 public class ContatoFragment extends DialogFragment implements DialogInterface.OnClickListener, View.OnClickListener {
 
     Bitmap mFoto;
     ImageView mImgFoto;
     EditText mEdtNome, mEdtEndereco, mEdtPhone;
 
+    /*É carregado os arquivos de layout e inicializamos com os componentes da interface gráfica. Ao clicarmos no image view
+    * chamamos o onClick e nele abrimos a activity para selecionar uma foro do dispositivo.*/
     @NonNull
     @Override
     public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
@@ -53,12 +46,13 @@ public class ContatoFragment extends DialogFragment implements DialogInterface.O
                 .setNegativeButton(R.string.cancelar, null)
                 .create();
     }
+
     @Override
     public void onClick(DialogInterface dialog, int which) {
         ContatoUtil.inserirContato(getActivity(), mEdtNome.getText().toString(), mEdtEndereco.getText().toString(),
                 mEdtPhone.getText().toString(), mFoto);
     }
-
+    /*Ao clicarmos no ok chamamos nossa classe util que faz a inserção*/
     @Override
     public void onClick(View v) {
         Intent intent = new Intent(Intent.ACTION_PICK);
@@ -66,6 +60,7 @@ public class ContatoFragment extends DialogFragment implements DialogInterface.O
         startActivityForResult(intent, 0);
     }
 
+    /*Após selecionar essa imagem o método onActivityResult é invocado. Redimencionamos a a imagem para 1/4 do seu tamanho*/
     @Override
     public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -78,32 +73,4 @@ public class ContatoFragment extends DialogFragment implements DialogInterface.O
         }
         mImgFoto.setImageBitmap(mFoto);
     }
-
-    public ContatoFragment() {
-        // Required empty public constructor
-    }
-
-
-    public static ContatoFragment newInstance() {
-        ContatoFragment fragment = new ContatoFragment();
-        Bundle args = new Bundle();
-        fragment.setArguments(args);
-        return fragment;
-    }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-    }
-
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_contato, container, false);
-    }
-
-
-
-
 }
